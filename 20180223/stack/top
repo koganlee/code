@@ -1,0 +1,74 @@
+ ///
+ /// @file    stack.cc
+ /// @author  lemon(haohb13@gmail.com)
+ /// @date    2018-02-24 15:38:15
+ ///
+ 
+#include "stack.h"
+Stack::Stack()
+{
+    p = 0; 
+}
+
+void Stack::push(int num)
+{
+   if(IsFull())
+   {
+	std::cout << "Stack is IsFull.\n";
+    return;
+   }
+   else{
+	   elements[p++] = num; 
+   }
+}
+
+bool Stack::IsFull()
+{
+    if( p >= SIZE)
+	{
+		return true;
+     }
+	else
+		return false;
+}
+
+void Stack::pop()
+{
+   if(IsEmpty())
+	{
+	   std::cout << "Stack is IsEmpty.\n";
+       return;
+	}
+   else
+   std::cout << "top =" << elements[--p]  << std::endl;
+}
+
+
+int Stack::top()
+{
+   if(IsEmpty())
+	{
+	   std::cout << "Stack is empty.\n";
+       return 0;
+	}
+    std::cout << "p= " << p << std::endl;
+    std::cout << "top =" << elements[p] << std::endl;
+    return elements[p];
+}
+
+bool Stack::IsEmpty()
+{
+	 if( p <= 0)
+		 return true;
+	 else
+         return  false;      
+}
+
+
+Stack::~Stack()
+{
+  std::cout << "Done.\n";
+}
+
+
+
